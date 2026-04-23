@@ -6,32 +6,48 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DetailView: View {
     let item: CertificateModel
     @State private var showEditSheet = false
+    @State private var showDeleteAlert = false
+    @Environment(\.modelContext) private var context
+    let onClose: () -> Void
     
     var body: some View {
         VStack(spacing: 20){
-            HStack{
-                Text("Warranty details: ")
-                    .font(Font.custom("PlayfairDisplay-ExtraBold", size: 23))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundStyle(.mainYellow)
-                    
+            HStack {
+                Button(action: {
+                    HapticManager.impact(.light)
+                    onClose()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 14, height: 24)
+                        .foregroundStyle(.mainYellow)
+                }
                 
-                Button {
+                Spacer()
+                
+                Text("Гарантийный талон: ")
+                    .font(Font.custom("PlayfairDisplay-ExtraBold", size: 22))
+                    .foregroundStyle(.mainYellow)
+                
+                Spacer()
+                Button(action: {
+                    HapticManager.impact(.light)
                     showEditSheet = true
-                } label: {
+                }) {
                     Image(systemName: "pencil")
                         .resizable()
                         .frame(width: 23, height: 23)
-                        .foregroundStyle(Color.mainYellow)
+                        .foregroundStyle(.mainYellow)
                 }
             }
             .padding(.horizontal, 20)
             
-            ScrollView {
+            ScrollView{
                 VStack(spacing: 20) {
                     if let imageData = item.imageData,
                        let uiImage = UIImage(data: imageData) {
@@ -45,28 +61,28 @@ struct DetailView: View {
                     }
                     
                     VStack(spacing: 10) {
-                        detailRow(title: "Product:", value: item.productName, valueColor: .mainYellow)
+                        detailRow(title: "Товар:", value: item.productName, valueColor: .mainYellow)
                         
                         detailRow(
-                            title: "Valid until:",
-                            value: item.validTo.formatted(date: .abbreviated, time: .omitted) + daysUntil(item.validTo),
+                            title: "Действительный до:",
+                            value: item.validTo.ruDate() + daysUntil(item.validTo),
                             valueColor: colorForDate(item.validTo)
                         )
                         
                         if let serialNumber = item.serialNumber, !serialNumber.isEmpty {
-                            detailRow(title: "Serial number:", value: serialNumber, valueColor: .mainYellow)
+                            detailRow(title: "Серийный номер:", value: serialNumber, valueColor: .mainYellow)
                         }
                         
                         if let buyDate = item.buyDate {
                             detailRow(
-                                title: "Buy date:",
-                                value: buyDate.formatted(date: .abbreviated, time: .omitted),
+                                title: "Дата покупки:",
+                                value: buyDate.ruDate(),
                                 valueColor: .mainYellow
                             )
                         }
                         
                         if let sellerName = item.sellerName, !sellerName.isEmpty {
-                            detailRow(title: "Seller:", value: sellerName, valueColor: .mainYellow)
+                            detailRow(title: "Продавец:", value: sellerName, valueColor: .mainYellow)
                         }
                         
                         if let sellerEmail = item.sellerEmail, !sellerEmail.isEmpty {
@@ -74,12 +90,26 @@ struct DetailView: View {
                         }
                         
                         if let sellerPhone = item.sellerPhone, !sellerPhone.isEmpty {
-                            detailRow(title: "Phone:", value: sellerPhone, valueColor: .mainYellow)
+                            detailRow(title: "Телефон:", value: sellerPhone, valueColor: .mainYellow)
                         }
                     }
                     .padding(.horizontal, 20)
                     
                     Spacer(minLength: 20)
+                    
+                    Button {
+                        HapticManager.impact(.light)
+                        showDeleteAlert = true
+                    } label: {
+                        Text("Удалить талон")
+                            .font(Font.custom("PlayfairDisplay-ExtraBold", size: 18))
+                            .foregroundStyle(.red)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 54)
+                            .background(Color.red.opacity(0.12))
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .padding(.horizontal, 20)
+                    }
                 }
                 .padding(.top, 20)
             }
@@ -88,23 +118,42 @@ struct DetailView: View {
         .background(Color.mainDarkBlue)
         .sheet(isPresented: $showEditSheet) {
             EditCertificateView(item: item)
+                .presentationBackground(.mainDarkBlue)
+        }
+        .alert("Хотите удалить?", isPresented: $showDeleteAlert) {
+            Button("Отмена", role: .cancel) {
+                print(showDeleteAlert)
+            }
+            
+            Button("Удалить талон") {
+                HapticManager.impact(.light)
+                deleteCertificate()
+            }
         }
     }
     
     @ViewBuilder
     private func detailRow(title: String, value: String, valueColor: Color) -> some View {
-        HStack(alignment: .bottom) {
+        HStack(alignment: .top) {
             Text(title)
                 .font(Font.custom("PlayfairDisplay-Medium", size: 17))
                 .foregroundStyle(.mainYellow.opacity(0.7))
             
             Text(value)
-                .font(Font.custom("PlayfairDisplay-Medium", size: 21))
+                .font(Font.custom("PlayfairDisplay-Medium", size: 20))
                 .foregroundStyle(valueColor)
                 .underline()
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
             
             Spacer()
         }
+    }
+    
+    private func deleteCertificate() {
+        NotificationService.shared.removeNotification(for: item)
+        context.delete(item)
+        onClose()
     }
     
     private func daysUntil(_ date: Date) -> String {
@@ -116,11 +165,11 @@ struct DetailView: View {
         let days = components.day ?? 0
         
         if days < 0 {
-            return " (expired on \(abs(days)) d.)"
+            return "\n (истек \(abs(days)) д. назад)"
         } else if days == 0 {
-            return " (today)"
+            return " (сегодня)"
         } else {
-            return " (\(days) d.)"
+            return " (\(days) д.)"
         }
     }
     
@@ -156,6 +205,6 @@ struct DetailView: View {
             Warranty: 12 months
             Apple Store
             """
-        )
+        ), onClose: {}
     )
 }

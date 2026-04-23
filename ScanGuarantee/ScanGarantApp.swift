@@ -12,7 +12,7 @@ import SwiftData
 struct ScanGuaranteeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
         .modelContainer(for: CertificateModel.self)
     }

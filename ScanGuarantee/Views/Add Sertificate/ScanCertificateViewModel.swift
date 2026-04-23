@@ -1,12 +1,19 @@
-import Foundation
-import UIKit
+//
+//  ScanCertificateViewModel.swift
+//  ScanGuarantee
+//
+//  Created by Mark Vadimov on 21.04.26.
+//
+
+import SwiftUI
 import PhotosUI
+import Combine
 
 @MainActor
 final class ScanCertificateViewModel: ObservableObject {
     @Published var isProcessing = false
     @Published var selectedImageData: Data?
-    @Published var parsedData: ParsedCertificateData?
+    @Published var parsedData: ParsedCertificateModel?
     @Published var errorMessage: String?
     
     private let ocrService = OCRService()
@@ -23,6 +30,9 @@ final class ScanCertificateViewModel: ObservableObject {
         
         do {
             let ocrResult = try await ocrService.recognizeText(from: image)
+            print("===== OCR RAW TEXT =====")
+            print(ocrResult.rawText)
+            print("========================")
             let parsed = parser.parse(ocrResult)
             
             selectedImageData = data

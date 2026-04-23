@@ -31,7 +31,7 @@ struct OnboardingTabsView: View {
             
             HStack{
                 HStack(spacing: 10){
-                    ForEach(0..<viewModel.views.count, id: \.self) { index in
+                    ForEach(0..<3, id: \.self) { index in
                         if index == viewModel.currentIndex {
                             RoundedRectangle(cornerRadius: 4)
                                 .fill(Color.mainYellow)
@@ -49,19 +49,25 @@ struct OnboardingTabsView: View {
                 
                 Button(action: {
                     isToggle = false
-                    withAnimation(.easeInOut(duration: 0.3)) {
+                    Task {
                         if viewModel.isLastPage {
-                            print("Finish onboarding")
-                            onFinish()
-                        } else {
-                            viewModel.nextPage()
+                            _ = await NotificationService.shared.requestAuthorization()
+                        }
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            if viewModel.isLastPage {
+                                HapticManager.notify(.success)
+                                onFinish()
+                            } else {
+                                viewModel.nextPage()
+                                HapticManager.impact(.light)
+                            }
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                            isToggle = true
                         }
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                        isToggle = true
-                    }
                 }) {
-                    Text(viewModel.isLastPage ? "Get Started" : "Next")
+                    Text(viewModel.isLastPage ? "Начать" : "Дальше")
                         .frame(width: 200, height: 50)
                         .font(Font.custom("PlayfairDisplay-SemiBold", size: 20))
                         .foregroundStyle(Color.mainDarkBlue)
@@ -82,7 +88,7 @@ struct OnboardingTabsView: View {
     
     @ViewBuilder func OnboardingViewItem(_ item: OnboardingModel) -> some View {
         VStack(spacing: 30){
-            Image(item.image)
+            Image(item.imageName)
                 .resizable()
                 .frame(width: 275, height: 245)
             
@@ -102,5 +108,5 @@ struct OnboardingTabsView: View {
 }
 
 #Preview {
-    OnboardingTabsView()
+    OnboardingTabsView(onFinish: {})
 }

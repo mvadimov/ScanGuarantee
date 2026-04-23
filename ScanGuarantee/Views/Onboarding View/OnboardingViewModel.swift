@@ -11,10 +11,10 @@ import Combine
 final class OnboardingViewModel: ObservableObject {
     @Published var currentIndex = 0
     
-    var views: [OnboardingModel] = [
-        OnboardingModel(image: "SnapSave",title: "Snap and Save", text: "One shot and the warranty is saved. The camera automatically captures the purchase date and expiry!"),
-        OnboardingModel(image: "SmartRacks", title: "Smart Racks", text: "All warranty cards are sorted by category and expiry date. Nothing gets lost or mixed up!"),
-        OnboardingModel(image: "CareReminder", title: "Care Reminder", text: "You’ll get a notification one day before the warranty ends — just in time to contact support!")
+    private var views: [OnboardingModel] = [
+        OnboardingModel(imageName: "SnapSave",title: "Щёлк - и сохранено", text: "Один кадр - и гарантия под защитой. Камера сама распознаёт дату покупки и окончания срока!"),
+        OnboardingModel(imageName: "SmartRacks", title: "Умные полки", text: "Все гарантийные талоны рассортированы по категориям и датам. Ничего не теряется и не путается!"),
+        OnboardingModel(imageName: "CareReminder", title: "Заботливое напоминание", text: "Уведомление придёт за неделю до окончания гарантии — самое время обратиться в поддержку!")
     ]
     
     var currentView: OnboardingModel {

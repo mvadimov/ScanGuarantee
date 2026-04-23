@@ -1,10 +1,15 @@
-import Foundation
+//
+//  OCRService.swift
+//  ScanGuarantee
+//
+//  Created by Mark Vadimov on 16.04.26.
+//
+
 import UIKit
 import Vision
 
 final class OCRService {
-    
-    func recognizeText(from image: UIImage) async throws -> OCRScanResult {
+    func recognizeText(from image: UIImage) async throws -> OCRResult {
         guard let cgImage = image.cgImage else {
             throw OCRServiceError.invalidImage
         }
@@ -18,12 +23,12 @@ final class OCRService {
                 
                 let observations = request.results as? [VNRecognizedTextObservation] ?? []
                 
-                let strings = observations.compactMap { observation in
+                let lines = observations.compactMap { observation in
                     observation.topCandidates(1).first?.string
                 }
                 
-                let rawText = strings.joined(separator: "\n")
-                continuation.resume(returning: OCRScanResult(rawText: rawText, lines: strings))
+                let rawText = lines.joined(separator: "\n")
+                continuation.resume(returning: OCRResult(rawText: rawText, lines: lines))
             }
             
             request.recognitionLevel = .accurate
@@ -43,9 +48,4 @@ final class OCRService {
 
 enum OCRServiceError: Error {
     case invalidImage
-}
-
-struct OCRScanResult {
-    let rawText: String
-    let lines: [String]
 }

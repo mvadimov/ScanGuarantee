@@ -24,15 +24,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05B010AE2F8E9FF0002B4D95 /* ScanGarant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanGarant.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		05B010BD2F8E9FF1002B4D95 /* ScanGarantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanGarantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		05B010C72F8E9FF1002B4D95 /* ScanGarantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanGarantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B010AE2F8E9FF0002B4D95 /* ScanGuarantee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanGuarantee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B010BD2F8E9FF1002B4D95 /* ScanGuaranteeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanGuaranteeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B010C72F8E9FF1002B4D95 /* ScanGuaranteeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanGuaranteeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		05B010EF2F8ED5E1002B4D95 /* Exceptions for "ScanGuarantee" folder in "ScanGuarantee" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = 05B010AD2F8E9FF0002B4D95 /* ScanGuarantee */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		05B010B02F8E9FF0002B4D95 /* ScanGarant */ = {
+		05B010B02F8E9FF0002B4D95 /* ScanGuarantee */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScanGarant;
+			exceptions = (
+				05B010EF2F8ED5E1002B4D95 /* Exceptions for "ScanGuarantee" folder in "ScanGuarantee" target */,
+			);
+			path = ScanGuarantee;
 			sourceTree = "<group>";
 		};
 		05B010C02F8E9FF1002B4D95 /* ScanGarantTests */ = {
@@ -75,7 +88,7 @@
 		05B010A52F8E9FF0002B4D95 = {
 			isa = PBXGroup;
 			children = (
-				05B010B02F8E9FF0002B4D95 /* ScanGarant */,
+				05B010B02F8E9FF0002B4D95 /* ScanGuarantee */,
 				05B010C02F8E9FF1002B4D95 /* ScanGarantTests */,
 				05B010CA2F8E9FF1002B4D95 /* ScanGarantUITests */,
 				05B010AF2F8E9FF0002B4D95 /* Products */,
@@ -85,9 +98,9 @@
 		05B010AF2F8E9FF0002B4D95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05B010AE2F8E9FF0002B4D95 /* ScanGarant.app */,
-				05B010BD2F8E9FF1002B4D95 /* ScanGarantTests.xctest */,
-				05B010C72F8E9FF1002B4D95 /* ScanGarantUITests.xctest */,
+				05B010AE2F8E9FF0002B4D95 /* ScanGuarantee.app */,
+				05B010BD2F8E9FF1002B4D95 /* ScanGuaranteeTests.xctest */,
+				05B010C72F8E9FF1002B4D95 /* ScanGuaranteeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05B010AD2F8E9FF0002B4D95 /* ScanGarant */ = {
+		05B010AD2F8E9FF0002B4D95 /* ScanGuarantee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05B010D12F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGarant" */;
+			buildConfigurationList = 05B010D12F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGuarantee" */;
 			buildPhases = (
 				05B010AA2F8E9FF0002B4D95 /* Sources */,
 				05B010AB2F8E9FF0002B4D95 /* Frameworks */,
@@ -108,18 +121,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				05B010B02F8E9FF0002B4D95 /* ScanGarant */,
+				05B010B02F8E9FF0002B4D95 /* ScanGuarantee */,
 			);
-			name = ScanGarant;
+			name = ScanGuarantee;
 			packageProductDependencies = (
 			);
 			productName = ScanGarant;
-			productReference = 05B010AE2F8E9FF0002B4D95 /* ScanGarant.app */;
+			productReference = 05B010AE2F8E9FF0002B4D95 /* ScanGuarantee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		05B010BC2F8E9FF1002B4D95 /* ScanGarantTests */ = {
+		05B010BC2F8E9FF1002B4D95 /* ScanGuaranteeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05B010D42F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGarantTests" */;
+			buildConfigurationList = 05B010D42F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGuaranteeTests" */;
 			buildPhases = (
 				05B010B92F8E9FF1002B4D95 /* Sources */,
 				05B010BA2F8E9FF1002B4D95 /* Frameworks */,
@@ -133,16 +146,16 @@
 			fileSystemSynchronizedGroups = (
 				05B010C02F8E9FF1002B4D95 /* ScanGarantTests */,
 			);
-			name = ScanGarantTests;
+			name = ScanGuaranteeTests;
 			packageProductDependencies = (
 			);
 			productName = ScanGarantTests;
-			productReference = 05B010BD2F8E9FF1002B4D95 /* ScanGarantTests.xctest */;
+			productReference = 05B010BD2F8E9FF1002B4D95 /* ScanGuaranteeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		05B010C62F8E9FF1002B4D95 /* ScanGarantUITests */ = {
+		05B010C62F8E9FF1002B4D95 /* ScanGuaranteeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05B010D72F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGarantUITests" */;
+			buildConfigurationList = 05B010D72F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGuaranteeUITests" */;
 			buildPhases = (
 				05B010C32F8E9FF1002B4D95 /* Sources */,
 				05B010C42F8E9FF1002B4D95 /* Frameworks */,
@@ -156,11 +169,11 @@
 			fileSystemSynchronizedGroups = (
 				05B010CA2F8E9FF1002B4D95 /* ScanGarantUITests */,
 			);
-			name = ScanGarantUITests;
+			name = ScanGuaranteeUITests;
 			packageProductDependencies = (
 			);
 			productName = ScanGarantUITests;
-			productReference = 05B010C72F8E9FF1002B4D95 /* ScanGarantUITests.xctest */;
+			productReference = 05B010C72F8E9FF1002B4D95 /* ScanGuaranteeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05B010A92F8E9FF0002B4D95 /* Build configuration list for PBXProject "ScanGarant" */;
+			buildConfigurationList = 05B010A92F8E9FF0002B4D95 /* Build configuration list for PBXProject "ScanGuarantee" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +213,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05B010AD2F8E9FF0002B4D95 /* ScanGarant */,
-				05B010BC2F8E9FF1002B4D95 /* ScanGarantTests */,
-				05B010C62F8E9FF1002B4D95 /* ScanGarantUITests */,
+				05B010AD2F8E9FF0002B4D95 /* ScanGuarantee */,
+				05B010BC2F8E9FF1002B4D95 /* ScanGuaranteeTests */,
+				05B010C62F8E9FF1002B4D95 /* ScanGuaranteeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +271,12 @@
 /* Begin PBXTargetDependency section */
 		05B010BF2F8E9FF1002B4D95 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 05B010AD2F8E9FF0002B4D95 /* ScanGarant */;
+			target = 05B010AD2F8E9FF0002B4D95 /* ScanGuarantee */;
 			targetProxy = 05B010BE2F8E9FF1002B4D95 /* PBXContainerItemProxy */;
 		};
 		05B010C92F8E9FF1002B4D95 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 05B010AD2F8E9FF0002B4D95 /* ScanGarant */;
+			target = 05B010AD2F8E9FF0002B4D95 /* ScanGuarantee */;
 			targetProxy = 05B010C82F8E9FF1002B4D95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -395,16 +408,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RN5TH2CDVS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = ScanGuarantee/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Scan Guarantee";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,12 +429,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sMark.test.ScanGarant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -427,16 +447,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RN5TH2CDVS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = ScanGuarantee/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Scan Guarantee";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,12 +468,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sMark.test.ScanGarant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -472,7 +499,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanGarant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanGarant";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanGuarantee.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanGuarantee";
 			};
 			name = Debug;
 		};
@@ -494,7 +521,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanGarant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanGarant";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanGuarantee.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanGuarantee";
 			};
 			name = Release;
 		};
@@ -541,7 +568,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05B010A92F8E9FF0002B4D95 /* Build configuration list for PBXProject "ScanGarant" */ = {
+		05B010A92F8E9FF0002B4D95 /* Build configuration list for PBXProject "ScanGuarantee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05B010CF2F8E9FF1002B4D95 /* Debug */,
@@ -550,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05B010D12F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGarant" */ = {
+		05B010D12F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGuarantee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05B010D22F8E9FF1002B4D95 /* Debug */,
@@ -559,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05B010D42F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGarantTests" */ = {
+		05B010D42F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGuaranteeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05B010D52F8E9FF1002B4D95 /* Debug */,
@@ -568,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05B010D72F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGarantUITests" */ = {
+		05B010D72F8E9FF1002B4D95 /* Build configuration list for PBXNativeTarget "ScanGuaranteeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05B010D82F8E9FF1002B4D95 /* Debug */,

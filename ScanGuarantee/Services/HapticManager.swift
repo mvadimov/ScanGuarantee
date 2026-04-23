@@ -1,23 +1,22 @@
-import UIKit
+//
+//  HapticManager.swift
+//  ScanGuarantee
+//
+//  Created by Mark Vadimov on 15.04.26.
+//
 
-// MARK: - Haptic Manager (для iOS 10-16)
-class HapticManager {
-    
-    // Уведомления: успех, ошибка, предупреждение
-    static func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(type)
+import SwiftUI
+
+enum HapticManager {
+    static func impact(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
     
-    // Удары разной силы
-    static func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generator = UIImpactFeedbackGenerator(style: style)
-        generator.impactOccurred()
+    static func notify(_ type: UINotificationFeedbackGenerator.FeedbackType) {
+        UINotificationFeedbackGenerator().notificationOccurred(type)
     }
     
-    // Легкий щелчок выбора
     static func selection() {
-        let generator = UISelectionFeedbackGenerator()
-        generator.selectionChanged()
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 }

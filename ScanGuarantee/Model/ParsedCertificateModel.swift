@@ -1,5 +1,5 @@
 //
-//  ParsedCertificateData.swift
+//  ParsedCertificateModel.swift
 //  ScanGuarantee
 //
 //  Created by Mark Vadimov on 16.04.26.
