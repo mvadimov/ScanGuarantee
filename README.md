@@ -25,7 +25,26 @@ ScanGuarantee is an iOS app that helps you store and manage warranty certificate
 - Search by product name.
 - Clean and minimal UI
 
-### 2. Add Certificate
+### 2. Custom TabBar 
+
+A fully custom-built tab bar designed for filtering and searching warranties in a compact and interactive way.
+
+- Horizontally scrollable filter chips (All | Active | Expiring soon | Expired)
+- Smooth animated transitions between states.
+- Integrated expandable search bar:
+    * Expands inline within the tab bar.
+    * Automatically shifts content using custom layout logic.
+    * Activates keyboard with smooth animation.
+- Dynamic UI behavior:
+    * Filters are disabled while search is active.
+    * Search resets selected filter to default.
+    * “Close” button appears when typing.
+- Built with:
+    * ScrollView + custom layout logic (no TabView)
+    * @FocusState for keyboard handling
+    * VisualEffect for dynamic offset animation
+
+### 3. Add Certificate
 
 - Add warranty manually or via image.
 - Import image from gallery.
@@ -33,14 +52,14 @@ ScanGuarantee is an iOS app that helps you store and manage warranty certificate
 - Ability to edit extracted data before saving.
 - Image of the certificate is stored locally.
 
-### 3. Detail Screen
+### 4. Detail Screen
 
 - Full information about the warranty (Product name / Expiration date / Serial number (if available) / Seller info (optional))
 - Displays remaining days or overdue status.
 - Shows attached certificate image.
 - Edit and delete functionality.
 
-### 4. Notifications
+### 5. Notifications
 - Automatic reminder before warranty expiration.
 - Default: notification 7 days before.
 - Smart fallback
@@ -49,19 +68,19 @@ If less than 7 days remain → notify next day (or today if before 10:00).
 Ability to disable notifications per certificate.
 Handles permission state and guides user to Settings if needed.
 
-### 5. OCR Processing
+### 6. OCR Processing
 - Uses Apple's Vision framework.
 - Works with both printed and handwritten text (basic support).
 - Smart parsing:
 - Handles different formats like: “Warranty for 12 months” or “Valid until DD.MM.YYYY”
 - Extracted raw text can be logged for debugging and improving parsing accuracy.
 
-### 6. Adaptive Interface
+### 7. Adaptive Interface
 - Supports all devices from iPhone 8 and newer.
 - Minimum iOS version — 17.
 - Smooth animations and custom UI (no NavigationStack usage).
 
-### 7. Clean Architecture
+### 8. Clean Architecture
 - MVVM architecture.
 - Clear separation of UI (SwiftUI Views), Business logic (ViewModels), Services (OCR, Notifications)
 - Local-first approach (no backend required).
