@@ -11,6 +11,7 @@ ScanGuarantee is an iOS app that helps you store and manage warranty certificate
 - **Data Storage:** SwiftData, UserDefaults
 - **OCR:** Vision Framework(on-device text recognition)
 - **Notifications:** UserNotifications
+- **Testing:** XCTest, XCUITest
 - **Platform:** iOS (minimum version — 17)
 - **Devices:** any, starting from iPhone 11
 
