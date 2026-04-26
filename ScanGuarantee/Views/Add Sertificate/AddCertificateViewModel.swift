@@ -75,6 +75,10 @@ final class AddCertificateViewModel: ObservableObject {
         )
         
         context.insert(newItem)
+        // UI-test
+        if ProcessInfo.processInfo.arguments.contains("-UITesting") {
+            return true
+        }
         
         let isAuthorized = await NotificationService.shared.isAuthorized()
         

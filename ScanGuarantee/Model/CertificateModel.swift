@@ -53,3 +53,5 @@ final class CertificateModel: Identifiable {
         self.rawText = rawText
     }
 }
+
+extension CertificateModel: CertificateRepresentableProtocol {}

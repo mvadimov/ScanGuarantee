@@ -24,6 +24,10 @@ struct HomeView: View {
 
     @State private var showAddOptions: Bool = false
     @State private var showPhotoPicker: Bool = false
+    
+    private var filteredCertificates: [CertificateModel] {
+        viewModel.filteredItems(items) as! [CertificateModel]
+    }
 
     var body: some View {
         VStack(spacing: 20) {
@@ -36,6 +40,7 @@ struct HomeView: View {
                     Text("Scan Guarantee")
                         .font(Font.custom("PlayfairDisplay-ExtraBold", size: 23))
                         .foregroundStyle(Color.mainYellow)
+                        .accessibilityIdentifier("home_title")
 
                     Spacer()
 
@@ -49,6 +54,7 @@ struct HomeView: View {
                             .fontWeight(.light)
                             .foregroundStyle(Color.mainYellow)
                     }
+                    .accessibilityIdentifier("add_certificate_button")
                     .confirmationDialog("", isPresented: $showAddOptions, titleVisibility: .visible) {
                         Button("Сфотографировать") {
                             HapticManager.impact(.light)
@@ -90,7 +96,7 @@ struct HomeView: View {
 
             ScrollView(.vertical) {
                 VStack(spacing: 15) {
-                    ForEach(viewModel.filteredItems(items)) { item in
+                    ForEach(filteredCertificates) { item in
                         Button {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 viewModel.openCertificate(item)
@@ -112,6 +118,7 @@ struct HomeView: View {
                                     }
                                 }
                         }
+                        .accessibilityIdentifier("certificate_cell_\(item.productName)")
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

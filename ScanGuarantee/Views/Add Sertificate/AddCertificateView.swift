@@ -54,6 +54,7 @@ struct AddCertificateView: View {
                     .onChange(of: viewModel.productName) { _, _ in
                         viewModel.resetValidationColorIfNeeded()
                     }
+                    .accessibilityIdentifier("certificate_name_textfield")
             }
             
             VStack(alignment: .leading, spacing: 12) {
@@ -75,6 +76,7 @@ struct AddCertificateView: View {
                             .datePickerStyle(.wheel)
                             .preferredColorScheme(.dark)
                             .colorMultiply(.mainYellow)
+                            .accessibilityIdentifier("valid_to_date_picker")
                     } else {
                         Button {
                             withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
@@ -220,6 +222,7 @@ struct AddCertificateView: View {
                         .background(.mainYellow)
                         .clipShape(Capsule())
                 }
+                .accessibilityIdentifier("save_certificate_button")
             }
             .frame(maxWidth: .infinity)
             

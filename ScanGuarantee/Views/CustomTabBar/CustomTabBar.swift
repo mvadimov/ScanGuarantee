@@ -108,6 +108,7 @@ struct CustomTabBar: View {
                         .textContentType(.none)
                         .focused($isKeyboardActive)
                         .colorMultiply(.black)
+                        .accessibilityIdentifier("home_search_textfield")
                 }
             }
             .padding(.leading, isSearchExpanded ? 5 : 0)

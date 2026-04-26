@@ -26,13 +26,12 @@ final class HomeViewModel: ObservableObject {
         set { selectedFilter = HomeFilter(rawValue: newValue) ?? .all }
     }
     
-    func filteredItems(_ items: [CertificateModel]) -> [CertificateModel] {
+    func filteredItems(_ items: [CertificateRepresentableProtocol]) -> [CertificateRepresentableProtocol] {
         let now = Date()
         
         return items.filter { item in
-            let matchesSearch =
-                searchText.isEmpty ||
-                item.productName.localizedCaseInsensitiveContains(searchText)
+            let matchesSearch = searchText.isEmpty ||
+            item.productName.localizedCaseInsensitiveContains(searchText)
             
             let matchesFilter: Bool
             
